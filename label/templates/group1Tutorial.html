@@ -17,7 +17,7 @@
       <img src="{% static x.title  %}"  alt="Trash" style="width: 30%" />
 
 
-      <form action="/label/1/" onsubmit="setInitTimestamp();" id ="labelform" method="post" onkeydown="return event.key != 'Enter';">
+      <form action="/label/1/"  id ="labelform" method="post" onkeydown="return event.key != 'Enter';">
         {% csrf_token %}
         <br />
         <input type="hidden" name="imageid" value="{{x.ImageID}}" />

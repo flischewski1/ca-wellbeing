@@ -10,15 +10,6 @@ const counterMask = {
   "11111" : "Timestamp6"
 }
 
-function setInitTimestamp() {
-    let currentDate = new Date(); 
-    taskTimestamps["0"] = currentDate
-    value = JSON.stringify(taskTimestamps)
-    createCookie("timestamps",value,7 )
-}
-
-
-
 // get data from the labelform
 
 function getData(form) {
@@ -46,8 +37,16 @@ function getData(form) {
     }
     
     let currentDate = new Date(); 
-    taskTimestamps[counterMask[readCookie("ExperimentCounter")]] = currentDate;
     let cookieStatus = readCookie("ExperimentCounter")
+    if (cookieStatus === null){
+    
+    taskTimestamps[counterMask["0"]] = currentDate;
+
+    }else {
+    console.log("Hallo");
+    taskTimestamps[counterMask[readCookie("ExperimentCounter")]] = currentDate;
+    }
+    
     appendCookie(terrainname,taskResultsTerrain);
     appendCookie(itemname, taskResultsItems);
     appendCookie("timestamps",taskTimestamps);
