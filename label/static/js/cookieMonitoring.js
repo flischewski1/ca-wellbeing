@@ -2,7 +2,7 @@ let taskTimestamps = {};
 let taskResultsItems = {};
 let taskResultsTerrain = {};
 const counterMask = {
-  "0" : "Timestamp1",
+  "Timestamp1" : "Timestamp1",
   "1": "Timestamp2",
   "11": "Timestamp3",
   "111" : "Timestamp4", 
@@ -39,7 +39,7 @@ function getData(form) {
     let currentDate = new Date(); 
     let cookieStatus = readCookie("ExperimentCounter")
     if(cookieStatus === null){
-    masker = counterMask["0"]
+    masker = "Timestamp1"
     taskTimestamps[masker] = currentDate;
 
     }else{
@@ -49,6 +49,7 @@ function getData(form) {
     appendCookie(terrainname,taskResultsTerrain);
     appendCookie(itemname, taskResultsItems);
     appendCookie("timestamps",taskTimestamps);
+    taskTimestamps = getTrackingCookie("timestamps");
 
     if(cookieStatus === "11111"){
       const group = readCookie("group"); 
