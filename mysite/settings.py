@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-c6*%y=e72897^=7e2me+$zh9030@5q3-b-9z$=4_8h^64tq!*t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['trashclassification.azurewebsites.net']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -127,5 +127,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-SCM_DO_BUILD_DURING_DEPLOYMENT = 1
