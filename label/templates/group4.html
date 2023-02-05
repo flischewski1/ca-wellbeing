@@ -8,14 +8,14 @@
     <script src="{% static 'js/response.js' %}" defer></script>
     <script src="{% static 'js/cookieMonitoring.js' %}" defer></script>
   </head>
-  <body onload = "progressMessage(false, false);">
+  <body onload = "progressMessage(false, false);changeButtonName();">
     
 
-     
+    <div class="main-container"> 
 
     <div class="main-text">
       {% for x in data %}
-      <img src="{% static x.title  %}" alt="Trash" style="width: 30%" />
+      <img src="{% static x.title  %}" alt="Trash" style="width:  60%" />
 
       <form action="" id ="labelform" onsubmit="updateCookie();" method="post" onkeydown="return event.key != 'Enter';">
         {% csrf_token %}
@@ -50,7 +50,10 @@
           <div class="circle circle-3"></div>
         </div>
       </div>
-
+      <div class="chat-shortcuts">
+        <button onclick="setMessage('Fertig')" id="RecommendButton"> </button>
+      </div>
+      
       
       <div class="chat-input">
         
@@ -62,6 +65,7 @@
           <img src="{% static 'images/send.svg' %}" alt="send" />
         </div>
       </div>
+    </div>
     </div>
   </body>
 </html>

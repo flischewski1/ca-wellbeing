@@ -7,17 +7,19 @@ const loadingEle =document.querySelector(".loading");
  
 
 // Messages
-const startmessagelauraWelcome =  "Hallo! Ich bin Laura und helfe dir dich in dieser Studie zurecht zu finden 😊"
-const messageTutorial = 'In dieser Studie ist es deine Aufgabe die Bilder zu klassifizieren. Wähle dazu die passende Option in den Kategorien Terrain und Gegenstand (Art des Mülls).'
+const startmessagelauraWelcome =  "Hallo! Ich bin Laura und helfe dir dich in dieser Studie zurecht zu finden 😊" 
+const messageTutorial = 'In dieser Studie ist es deine Aufgabe die Bilder zu klassifizieren. Wähle dazu im Beispielbild (links) die passenden Optionen in den Kategorien Terrain (im Beispiel Sand) und Gegenstand (im Beispiel Strohhalm). Klingt einfach oder? Gib mir Bescheid, wenn du das Experiment starten willst.' + String.fromCodePoint( 128077 ) 
+const messageTutorialBot = 'In dieser Studie ist es deine Aufgabe die Bilder zu klassifizieren. Wähle dazu im Beispielbild (links) die passenden Optionen in den Kategorien Terrain (im Beispiel Sand) und Gegenstand (im Beispiel Strohhalm). Antworte mit "Start" wenn du das Experiment starten möchtest.' 
 
-const messageLauraStart = "Du hast die Aufgabe gestartet! Klassifiziere jetzt bitte die ersten 5 Bilder :)"
+
+const messageLauraStart = "Du hast die Aufgabe gestartet! Klassifiziere jetzt bitte die ersten 5 Bilder 😊"
 const messageBotStart = "Die Aufgabe ist gestartet. Bitte klassifiziere die Bilder."
 
 const messageLauraProgressstart = "Du hast bereits "
-const messageLauraProgressend = " geschafft."
-const messageLauraProgres = "Klassifiziere jetzt bitte die nächsten 5 Bilder :)"
+const messageLauraProgressend = " geschafft!" + String.fromCodePoint( 128170 )
+const messageLauraProgres = "Klassifiziere jetzt bitte die nächsten 5 Bilder 😊"
 
-const messageLauraNonProgress = "Diese Bilder wären geschafft. Klassifiziere jetzt bitte die nächsten 5 Bilder :)"
+const messageLauraNonProgress = "Diese Bilder wären geschafft!" + String.fromCodePoint( 128170 ) +  " Klassifiziere jetzt bitte die nächsten 5 Bilder 😊"
 
 const messageLBotProgressstart = "Fortschritt: "
 const messageLBotProgressend = " "
@@ -66,6 +68,28 @@ const renderMessageEle = (txt, type) => {
 
 }
 
+const renderProgressEle = (regularText1, boldText, regularText2, type) => {
+    let className = "user-message";
+    if(type !== 'user') {
+        className = "chatbot-message";
+    }
+    const messageEle = document.createElement("div");
+    let newElement = document.createElement("p");
+    let regularTextNode1 = document.createTextNode(regularText1);
+    let boldTextNode1 = document.createElement("strong");
+    boldTextNode1.innerText = boldText;
+    let regularTextNode2 = document.createTextNode(regularText2);
+
+    newElement.appendChild(regularTextNode1);
+    newElement.appendChild(boldTextNode1);
+    newElement.appendChild(regularTextNode2);
+
+    messageEle.classList.add(className); 
+    messageEle.append(newElement); 
+    chatBody.insertBefore(messageEle, loadingEle);
+
+}
+
 
 // chatbot answer
 const renderChatbotResponse = (userInput) => {
@@ -90,7 +114,7 @@ function renderChatbotmessage(id) {
         setScrollPosition();
         toggleLoading(true);
     }
-    , 1800);
+    , 800);
 }
 
 function renderNext() {
@@ -133,7 +157,7 @@ function tutorialHumanLike() {
 }
 
 function tutorialBot() {
-    renderMessageEle(messageTutorial, "Bot");
+    renderMessageEle(messageTutorialBot, "Bot");
 
 }
 
@@ -153,8 +177,8 @@ function progressHumanLike() {
     cookieStatus = readCookie("ExperimentCounter")
     n = cookieStatus.length * 5;
     progressString = n + "/25 Bilder";
-    message = messageLauraProgressstart + progressString + messageLauraProgressend
-    renderMessageEle(message, "Bot");
+    // custom Function als innerHTML
+    renderProgressEle(messageLauraProgressstart,progressString,messageLauraProgressend ,"Bot")
     renderMessageEle(messageLauraProgres,"Bot");
 
 }
@@ -163,8 +187,7 @@ function progressBot() {
     cookieStatus = readCookie("ExperimentCounter");
     n = cookieStatus.length * 5;
     progressString = n + "/25 Bilder";
-    message = messageLBotProgressstart + progressString + messageLBotProgressend
-    renderMessageEle(message, "Bot");
+    renderProgressEle(messageLBotProgressstart, progressString, messageLBotProgressend, "Bot");
     renderMessageEle(messageLBotProgress,"Bot");
  
 }

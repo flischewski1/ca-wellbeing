@@ -9,11 +9,11 @@
     <script src="{% static 'js/response.js' %}" defer></script>
   </head>
   <body onload = "renderChatbotmessage('TutorialBot');">
-   
+    <div class="main-container"> 
 
     <div class="main-text">
       {% for x in data %}
-      <img src="{% static x.title  %}" alt="Trash" style="width: 30%" />
+      <img src="{% static x.title  %}" alt="Trash" style="width:  60%" />
 
       <form id="labelform" action="/label/4/" method="post" onkeydown="return event.key != 'Enter';">
         {% csrf_token %}
@@ -48,6 +48,10 @@
         </div>
       </div>
 
+      <div class="chat-shortcuts">
+        <button onclick="setMessage('Start')">  &#x270D; Start </button>
+      </div>
+
       
       <div class="chat-input">
         
@@ -60,5 +64,6 @@
         </div>
       </div>
     </div>
+  </div>
   </body>
 </html>

@@ -10,10 +10,10 @@
   </head>
   <body onload = "renderChatbotmessage('TutorialHumanLike');">
     
-  
+    <div class="main-container"> 
     <div class="main-text">
       {% for x in data %}
-      <img src="{% static x.title  %}" alt="Trash" style="width: 30%" />
+      <img src="{% static x.title  %}" alt="Trash" style="width:  60%" />
 
       <form action="/label/2/"  id ="labelform" method="post" onkeydown="return event.key != 'Enter';">
         {% csrf_token %}
@@ -47,6 +47,9 @@
           <div class="circle circle-3"></div>
         </div>
       </div>
+      <div class="chat-shortcuts">
+        <button onclick="setMessage('Start')">  &#x270D; Start </button>
+      </div>
 
       
       <div class="chat-input">
@@ -59,6 +62,7 @@
           <img src="{% static 'images/send.svg' %}" alt="send" />
         </div>
       </div>
+    </div>
     </div>
   </body>
 </html>

@@ -10,10 +10,10 @@
   </head>
   <body onload="progressMessage(true, true);changeButtonName(); ">
   
-    
+    <div class="main-container"> 
     <div class="main-text">
       {% for x in data %}
-      <img src="{% static x.title  %}" alt="Trash" style="width: 70%" />
+      <img src="{% static x.title  %}" alt="Trash" style="width: 60%" />
 
       <form action="" id ="labelform" onsubmit="updateCookie();" method="post" onkeydown="return event.key != 'Enter';">
         {% csrf_token %}
@@ -49,8 +49,9 @@
       </div>
 
       <div class="chat-shortcuts">
-          <button onclick="setMessage('Fertig')" id="RecommendButton">  </button>
+          <button onclick="setMessage('Fertig')" id="RecommendButton"> </button>
         </div>
+
       <div class="chat-input">
         
         <div class="input-sec">
@@ -62,5 +63,6 @@
         </div>
       </div>
     </div>
+  </div>
   </body>
 </html>

@@ -1,16 +1,12 @@
 
 // Start, Next and End Relation 
-const responseObj = {
-    hello: "Hey ! How are you doing ?",
-    
-}
 
 function changeButtonName() {
     let cookieStatus = readCookie("ExperimentCounter");
     if(cookieStatus === "1111") {
-        document.getElementById("RecommendButton").textContent  = "Beenden"
+        document.getElementById("RecommendButton").innerHTML   = "&#x270D; Beenden"
     }else {
-        document.getElementById("RecommendButton").textContent  = "Fertig"
+        document.getElementById("RecommendButton").innerHTML   = "&#x270D; Fertig"
     }
     
 }
@@ -51,7 +47,7 @@ function setBotProgress(keyword){
         renderNext()
     }
     else {
-        // What
+        renderMessageEle('Ich habe deine Nachricht leider nicht verstanden. Bitte nutze eine vorgeschlagene Antwortmöglichkeit.', "Bot");
     }
 }
 
