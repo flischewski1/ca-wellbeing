@@ -7,8 +7,8 @@ const loadingEle =document.querySelector(".loading");
  
 
 // Messages
-const startmessagelauraWelcome =  "Hallo! Ich bin Laura und helfe dir dich in dieser Studie zurecht zu finden :)"
-const messageTutorial = 'In dieser Studie ist es deine Aufgabe die Bilder zu klassifizieren. Wähle dazu die passende Option in den Kategorien Terrain und Gegenstand (Art des Mülls) aus und klicke anschließend auf "Weiter".'
+const startmessagelauraWelcome =  "Hallo! Ich bin Laura und helfe dir dich in dieser Studie zurecht zu finden 😊"
+const messageTutorial = 'In dieser Studie ist es deine Aufgabe die Bilder zu klassifizieren. Wähle dazu die passende Option in den Kategorien Terrain und Gegenstand (Art des Mülls).'
 
 const messageLauraStart = "Du hast die Aufgabe gestartet! Klassifiziere jetzt bitte die ersten 5 Bilder :)"
 const messageBotStart = "Die Aufgabe ist gestartet. Bitte klassifiziere die Bilder."
@@ -66,17 +66,12 @@ const renderMessageEle = (txt, type) => {
 
 }
 
+
+// chatbot answer
 const renderChatbotResponse = (userInput) => {
-    const res = getChatbotResponse(userInput);
-    renderMessageEle(res);
+    setBotProgress(userInput)
 }
 
-
-// dialogeflow here:
-
-const getChatbotResponse = (userInput) => {
-    return responseObj[userInput] == undefined?"Ich verstehe dich leider nicht":responseObj[userInput];
-}
 
 const setScrollPosition = () => {
     if(chatBody.scrollHeight > 0){
@@ -104,7 +99,8 @@ function renderNext() {
     x.setAttribute("form", "labelform");
     x.setAttribute("value", "Weiter");
     x.setAttribute("class", "chatbot-message");
-    chatBody.append(x); 
+    
+    chatBody.insertBefore(x, loadingEle);
 
 }
 
@@ -133,22 +129,22 @@ menuMessages["NonProgressBot"] = nonProgressBot;
 function tutorialHumanLike() {
     renderMessageEle(startmessagelauraWelcome, "Bot");
     renderMessageEle(messageTutorial, "Bot");
-    renderNext();
+   
 }
 
 function tutorialBot() {
     renderMessageEle(messageTutorial, "Bot");
-    renderNext();
+
 }
 
 function humanLikeStart(){
     renderMessageEle(messageLauraStart, "Bot");
-    renderNext();
+ 
 }
 
 function botStart(){
     renderMessageEle(messageBotStart, "Bot");
-    renderNext();
+    
 }
 
 
@@ -160,7 +156,7 @@ function progressHumanLike() {
     message = messageLauraProgressstart + progressString + messageLauraProgressend
     renderMessageEle(message, "Bot");
     renderMessageEle(messageLauraProgres,"Bot");
-    renderNext();
+
 }
 
 function progressBot() {
@@ -170,20 +166,19 @@ function progressBot() {
     message = messageLBotProgressstart + progressString + messageLBotProgressend
     renderMessageEle(message, "Bot");
     renderMessageEle(messageLBotProgress,"Bot");
-    renderNext();
-
+ 
 }
 
 function nonProgressHumanLike() {
 
     renderMessageEle(messageLauraNonProgress,"Bot");
-    renderNext();
+ 
 }
 
 function nonProgressBot() {
 
     renderMessageEle(messageBotNonProgress,"Bot");
-    renderNext();
+    
 
 }
 

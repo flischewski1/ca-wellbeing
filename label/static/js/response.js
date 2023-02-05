@@ -1,7 +1,61 @@
+
+// Start, Next and End Relation 
 const responseObj = {
     hello: "Hey ! How are you doing ?",
     
 }
+
+function changeButtonName() {
+    let cookieStatus = readCookie("ExperimentCounter");
+    if(cookieStatus === "1111") {
+        document.getElementById("RecommendButton").textContent  = "Beenden"
+    }else {
+        document.getElementById("RecommendButton").textContent  = "Fertig"
+    }
+    
+}
+
+const setMessage = (input) => {
+
+    const userInput = input; 
+    renderMessageEle(userInput, "user");
+    txtinput.value = "";
+  
+    toggleLoading(false);
+    setScrollPosition();
+     
+    setTimeout(() => {
+        
+        renderChatbotResponse(userInput)
+        setScrollPosition();
+        toggleLoading(true);
+    }
+    , 600);
+    
+}
+
+function setBotProgress(keyword){
+    let cookieStatus = readCookie("ExperimentCounter")
+    if (keyword === "Start"){
+        renderMessageEle('Klicke Bitte "Weiter" um das Experiment zu starten', "Bot");
+        renderNext()
+    }
+
+    if (keyword === "Fertig" && cookieStatus !=="1111" ) {
+        renderMessageEle('Klicke Bitte "Weiter" um die nächsten fünf Bilder zu klassifizieren.', "Bot");
+        renderNext()
+    }   
+    // Depends on progress
+    if (keyword === "Fertig" && cookieStatus ==="1111" ) {
+        renderMessageEle('Klicke Bitte "Weiter" um die Aufgabe abzuschließen.', "Bot");
+        renderNext()
+    }
+    else {
+        // What
+    }
+}
+
+
 
 // Cookie Progress
 

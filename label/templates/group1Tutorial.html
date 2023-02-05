@@ -9,7 +9,7 @@
     <script src="{% static 'js/response.js' %}" defer></script>
   </head>
   <body onload = "renderChatbotmessage('TutorialHumanLike');">
-    
+
 
     <div class="main-text">
       {% for x in data %}
@@ -25,10 +25,11 @@
           {{ form.as_table }}
         </table>
         <br />
-        {% endfor %}
+        
 
         
       </form>
+      {% endfor %}
       
     </div>
 
@@ -50,7 +51,9 @@
         </div>
       </div>
 
-      
+      <div class="chat-shortcuts">
+        <button onclick="setMessage('Start')"> Start </button>
+      </div>
       <div class="chat-input">
         
         <div class="input-sec">
@@ -62,5 +65,9 @@
         </div>
       </div>
     </div>
+
+    
+
+
   </body>
 </html>

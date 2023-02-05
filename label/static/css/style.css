@@ -22,17 +22,28 @@
     display: block;
 }
 
-.container{
-    --light-color:#fff; 
-    height: 500px;
-    width:350px;
-    background: (--light-color);
-    position: fixed;
-    bottom:50px;
-    right: 10px;
+.main-text {
+    margin: auto;
+     position: fixed;
+    width: 700px;
+    top:125px;
+    height: 600px;
+    left:250px;
+    overflow-y: scroll;
     box-shadow: 0px 0px 5px 0px black;
-    
-}
+  }
+  
+  .container{
+      --light-color:#fff; 
+      height: 600px;
+      width:350px;
+      background: (--light-color);
+      position: fixed;
+      top:125px;
+      left:1000px;
+      box-shadow: 0px 0px 5px 0px black;
+  }
+  
 
 select, input[type="text"]{
     width:100%;
@@ -64,7 +75,7 @@ select, input[type="text"]{
 }
 
 .chat-body {
-    height: 385px;
+    height: 435px;
     display: flex;
     flex-direction: column;
     padding: 8px 10px;
@@ -74,6 +85,20 @@ select, input[type="text"]{
     background-color: white;
 }
 
+.chat-shortcuts {
+  height:50px;
+  border-top: 1px solid #ccc;
+  text-align:left ;
+}
+.chat-shortcuts button {
+    padding:5px;
+    margin:5px;
+    border-radius: 10px;
+    border: 1.4px solid turquoise;
+    cursor: pointer;
+    background-color:white;
+   
+  }
 .chat-input {
     height: 60px;
     display:flex;
@@ -105,7 +130,7 @@ select, input[type="text"]{
 .chatbot-message,
 .user-message {
     width: 80%;
-    font-size:smaller;
+    font-size: 0.95rem;
     padding: 8px; 
     background: #ccc;
     border-radius: 10px 10px 3px 10px;
