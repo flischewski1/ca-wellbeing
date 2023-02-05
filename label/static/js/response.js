@@ -35,16 +35,19 @@ function setBotProgress(keyword){
     if (keyword === "Start"){
         renderMessageEle('Klicke Bitte "Weiter" um das Experiment zu starten', "Bot");
         renderNext()
+        return null
     }
 
     if (keyword === "Fertig" && cookieStatus !=="1111" ) {
         renderMessageEle('Klicke Bitte "Weiter" um die nächsten fünf Bilder zu klassifizieren.', "Bot");
         renderNext()
+        return null
     }   
     // Depends on progress
     if (keyword === "Fertig" && cookieStatus ==="1111" ) {
         renderMessageEle('Klicke Bitte "Weiter" um die Aufgabe abzuschließen.', "Bot");
         renderNext()
+        return null
     }
     else {
         renderMessageEle('Ich habe deine Nachricht leider nicht verstanden. Bitte nutze eine vorgeschlagene Antwortmöglichkeit.', "Bot");
