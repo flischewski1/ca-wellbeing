@@ -16,10 +16,10 @@ const messageLauraStart = "Du hast die Aufgabe gestartet! Klassifiziere jetzt bi
 const messageBotStart = "Die Aufgabe ist gestartet. Bitte klassifiziere die Bilder."
 
 const messageLauraProgressstart = "Du hast bereits "
-const messageLauraProgressend = " geschafft!" + String.fromCodePoint( 128170 )
+const messageLauraProgressend = " geschafft!" 
 const messageLauraProgres = "Klassifiziere jetzt bitte die nächsten 5 Bilder 😊"
 
-const messageLauraNonProgress = "Diese Bilder wären geschafft!" + String.fromCodePoint( 128170 ) +  " Klassifiziere jetzt bitte die nächsten 5 Bilder 😊"
+const messageLauraNonProgress = "Diese Bilder wären geschafft!" + " Klassifiziere jetzt bitte die nächsten 5 Bilder 😊"
 
 const messageLBotProgressstart = "Fortschritt: "
 const messageLBotProgressend = " "
