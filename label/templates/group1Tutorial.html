@@ -7,11 +7,12 @@
     <script src="{% static 'js/app.js' %}" defer></script>
     <script src="{% static 'js/cookieMonitoring.js' %}" defer></script>
     <script src="{% static 'js/response.js' %}" defer></script>
+    
   </head>
   <body onload = "renderChatbotmessage('TutorialHumanLike');">
 
     <div class="main-container"> 
-    <div class="main-text">
+    <div class="main-text" id="tutorial-div">
       {% for x in data %}
 
       <img src="{% static x.title  %}"  alt="Trash" style="width: 60%" />

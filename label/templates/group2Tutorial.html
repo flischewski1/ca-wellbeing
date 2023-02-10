@@ -11,7 +11,7 @@
   <body onload = "renderChatbotmessage('TutorialHumanLike');">
     
     <div class="main-container"> 
-    <div class="main-text">
+    <div class="main-text" id="tutorial-div">
       {% for x in data %}
       <img src="{% static x.title  %}" alt="Trash" style="width:  60%" />
 

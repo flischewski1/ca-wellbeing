@@ -26,16 +26,39 @@ const setMessage = (input) => {
         setScrollPosition();
         toggleLoading(true);
     }
-    , 600);
+    , 1200);
     
 }
+
+
+function showHide() {
+    let x = document.getElementById("tutorial-div");
+    x.style.display = "block";
+
+  }
 
 function setBotProgress(keyword){
     let cookieStatus = readCookie("ExperimentCounter")
     if (keyword === "Start"){
-        renderMessageEle('Klicke Bitte "Weiter" um das Experiment zu starten', "Bot");
+        showHide()
+        // depends on group
+        cookieGroup = readCookie("group")
+        if(cookieGroup === "1" || cookieGroup === "2" ) { 
+            
+        renderHTMLEles(startTutorialHL2Array, "Bot")
         renderNext()
         return null
+
+        }
+        if(cookieGroup === "3" || cookieGroup === "4" ) {
+            renderHTMLEles(startTutorialnHL2Array, "Bot");
+            
+            renderNext()
+        return null
+
+        }
+
+        
     }
 
     if (keyword === "Fertig" && cookieStatus !=="1111" ) {

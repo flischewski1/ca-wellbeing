@@ -7,6 +7,10 @@
     font-family: "Poppins", sans-serif;
 }
 
+#tutorial-div {
+    display:none;
+  }
+
 .form-table{
     margin-left: auto;
     margin-right: auto;
