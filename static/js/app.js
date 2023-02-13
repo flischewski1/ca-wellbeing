@@ -239,9 +239,6 @@ function messagetree(id) {
     menuMessages[id]()
 }
 
-function messagetree(id) {
-    menuMessages[id]()
-}
 
 var menuMessages = {};
 menuMessages["TutorialHumanLike"] = tutorialHumanLike;
@@ -279,6 +276,16 @@ function botStart(){
 }
 
 
+// New messages depending on treatment
+
+const messageMask = {
+    "1": "Weiter gehts!😊 Klassifiziere jetzt die nächsten fünf Bilder bitte.",
+    "11": "Ich habe mir deine Klassifizierung angeschaut und weitergeleitet. Mach jetzt bitte weiter. :)",
+    "111" : "Klassifiziere jetzt die nächsten fünf Bilder bitte.😊", 
+    "1111" : "Deine Ergebnisse sind bei mir angekommen für die nächsten 5 Bilder. Setzte jetzt bitte die Klassifikation fort."
+  }
+
+
 
 function progressHumanLike() {
     cookieStatus = readCookie("ExperimentCounter")
@@ -286,11 +293,13 @@ function progressHumanLike() {
     progressString = n + "/25 Bilder";
     // custom Function als innerHTML
     renderProgressEle(messageLauraProgressstart,progressString,messageLauraProgressend ,"Bot")
-    renderMessageEle(messageLauraProgres,"Bot");
+    renderMessageEle(messageMask[cookieStatus],"Bot");
 
 }
 
+
 function progressBot() {
+
     cookieStatus = readCookie("ExperimentCounter");
     n = cookieStatus.length * 5;
     progressString = n + "/25 Bilder";
@@ -300,8 +309,8 @@ function progressBot() {
 }
 
 function nonProgressHumanLike() {
-
-    renderMessageEle(messageLauraNonProgress,"Bot");
+    cookieStatus = readCookie("ExperimentCounter");
+    renderMessageEle(messageMask[cookieStatus],"Bot");
  
 }
 
