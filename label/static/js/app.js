@@ -13,7 +13,7 @@ const loadingEle =document.querySelector(".loading");
 let startMessageHL1 = document.createTextNode("Hallo! Ich bin " );
 let startMessageHL2 = document.createElement("strong");
 startMessageHL2.innerText = "Laura";
-let startMessageHL3 = document.createTextNode(" und helfe dir dich in dieser Studie zurecht zu finden 😊" );
+let startMessageHL3 = document.createTextNode(" und helfe dir, dich in dieser Studie zurecht zufinden 😊" );
 const startMessageArrayHL = [startMessageHL1,startMessageHL2, startMessageHL3]
 
 
