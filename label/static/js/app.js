@@ -56,7 +56,7 @@ const startTutorialHL2Array = [startTutorialNextHL1,startTutorialNextHL2,startTu
 
 let startTutorialNextnHL1 = document.createTextNode("In dieser Studie ist es deine Aufgabe die " );
 let startTutorialNextnHL2 = document.createElement("strong");
-startTutorialNextHL2.innerText = 'Bilder zu klassifizieren';
+startTutorialNextnHL2.innerText = 'Bilder zu klassifizieren';
 let startTutorialNextnHL3 = document.createTextNode(". Wähle dazu im Beispielbild (links) die passenden Optionen in den Kategorien " );
 let startTutorialNextnHL4 = document.createElement("strong");
 startTutorialNextnHL4.innerText = 'Terrain ';

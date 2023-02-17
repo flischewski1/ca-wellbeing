@@ -13,7 +13,7 @@ const loadingEle =document.querySelector(".loading");
 let startMessageHL1 = document.createTextNode("Hallo! Ich bin " );
 let startMessageHL2 = document.createElement("strong");
 startMessageHL2.innerText = "Laura";
-let startMessageHL3 = document.createTextNode(" und helfe dir dich in dieser Studie zurecht zu finden 😊" );
+let startMessageHL3 = document.createTextNode(" und helfe dir, dich in dieser Studie zurecht zufinden 😊" );
 const startMessageArrayHL = [startMessageHL1,startMessageHL2, startMessageHL3]
 
 
@@ -56,7 +56,7 @@ const startTutorialHL2Array = [startTutorialNextHL1,startTutorialNextHL2,startTu
 
 let startTutorialNextnHL1 = document.createTextNode("In dieser Studie ist es deine Aufgabe die " );
 let startTutorialNextnHL2 = document.createElement("strong");
-startTutorialNextHL2.innerText = 'Bilder zu klassifizieren';
+startTutorialNextnHL2.innerText = 'Bilder zu klassifizieren';
 let startTutorialNextnHL3 = document.createTextNode(". Wähle dazu im Beispielbild (links) die passenden Optionen in den Kategorien " );
 let startTutorialNextnHL4 = document.createElement("strong");
 startTutorialNextnHL4.innerText = 'Terrain ';
