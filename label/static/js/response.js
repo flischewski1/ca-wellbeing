@@ -61,13 +61,13 @@ function setBotProgress(keyword){
         
     }
 
-    if (keyword === "Fertig" && cookieStatus !=="1111" ) {
+    if ((keyword.includes("Fertig") || keyword.includes("fertig"))  && cookieStatus !=="1111" ) {
         renderMessageEle('Klicke Bitte "Weiter" um die nächsten fünf Bilder zu klassifizieren.', "Bot");
         renderNext()
         return null
     }   
     // Depends on progress
-    if (keyword === "Fertig" && cookieStatus ==="1111" ) {
+    if (keyword.includes("Fertig") || keyword.includes("fertig") && cookieStatus ==="1111" ) {
         renderMessageEle('Klicke Bitte "Weiter" um die Aufgabe abzuschließen.', "Bot");
         renderNext()
         return null
