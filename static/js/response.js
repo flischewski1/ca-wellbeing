@@ -39,7 +39,7 @@ function showHide() {
 
 function setBotProgress(keyword){
     let cookieStatus = readCookie("ExperimentCounter")
-    if (keyword === "Start"){
+    if (keyword.includes("Start") || keyword.includes("start")  ){
         showHide()
         // depends on group
         cookieGroup = readCookie("group")
