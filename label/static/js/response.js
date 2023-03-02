@@ -45,7 +45,7 @@ function setBotProgress(keyword){
         cookieGroup = readCookie("group")
         if(cookieGroup === "1" || cookieGroup === "2" ) { 
             
-        renderHTMLEles(startTutorialHL2Array, "Bot")
+        renderHTMLEles(startTutorialHL2Array, "Bot");
         renderNext()
         return null
 
@@ -150,9 +150,39 @@ const updateCookie = () => {
         cookieStatus = readCookie("ExperimentCounter")
         newCookieValue = cookieStatus + 1 
         createCookie("ExperimentCounter",newCookieValue,7)
-        console.log(readCookie("ExperimentCounter"))
+        
     }
 }
 
 
-// Generate Link 
+
+// delaytimes 
+
+var delaytimes = {};
+delaytimes["TutorialHumanLike"] = calculateDelay([concatString(startMessageArrayHL.slice()),concatString(startTutorialHL1Array.slice())].join(' '));
+delaytimes["TutorialBot"] = 800;
+delaytimes["HumanLikeStart"] = calculateDelay(concatString(startNotelHL1Array.slice()));
+delaytimes["BotStart"] = 800;
+delaytimes["ProgressHumanLike"] = calculateDelay([messageLauraProgressstart, "X/25 Bilder", messageLauraProgressend, messageMask["11"]].join(' '));
+delaytimes["ProgressBot"] = 800;
+delaytimes["NonProgressHumanLike"] = calculateDelay([messageMask["11"]].join(''));
+delaytimes["NonProgressBot"] = 800;
+
+// concat Strings 
+
+function concatString(outerArray) {
+    functArray = outerArray
+    for (var i = 0; i < functArray.length; i++) {
+        if (functArray[i].nodeValue == null) {
+            functArray[i] = functArray[i].outerHTML
+        }
+        else {
+            functArray[i] = functArray[i].nodeValue
+        }
+        //Do something
+    };
+    text = functArray.join(' ')
+    return text
+
+}
+    

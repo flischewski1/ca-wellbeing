@@ -126,6 +126,12 @@ txtinput.addEventListener("keyup", (event) => {
 
 const renderUserMessage = () => {
 
+    if(cookieGroup === "1" || cookieGroup === "2" ) {
+        delay = calculateDelay(concatString(startTutorialHL2Array.slice()))
+    }
+    else {
+        delay = 1200
+    }
     const userInput = txtinput.value ; 
     renderMessageEle(userInput, "user");
     txtinput.value = "";
@@ -139,7 +145,7 @@ const renderUserMessage = () => {
         setScrollPosition();
         toggleLoading(true);
     }
-    , 1200);
+    , delay);
     
 }
 
@@ -189,7 +195,8 @@ function renderHTMLEles(inputArray, type) {
     let newElement = document.createElement("p");
     // Loop over array and append each elment
     for (const x of inputArray) {
-        newElement.appendChild(x) }
+        newElement.appendChild(x) 
+    }
     
     messageEle.classList.add(className); 
     messageEle.append(newElement); 
@@ -214,13 +221,37 @@ const toggleLoading = (show) => loadingEle.classList.toggle("hide", show)
 function renderChatbotmessage(id) {
    
     toggleLoading(false);
+    delay = delaytimes[id]
     setScrollPosition();
     setTimeout(() => {   
         messagetree(id)
         setScrollPosition();
         toggleLoading(true);
     }
-    , 800);
+    , delay);
+}
+
+
+// calculate dynamic response time
+function calculateDelay(chars) {
+    
+    wordCount = chars.split(' ').length; 
+    const stop = /[.!?]/;
+    sentenceCount = chars.split(stop).length - 1;
+    syllabus = chars.length;
+    C = 0.39 * (wordCount/sentenceCount) + 11.8*(syllabus/wordCount) -15.59
+    console.log(wordCount,sentenceCount,syllabus, C)
+    if (C===0) {
+        return 0
+    }
+    else{
+        
+        delay= 0.5*  Math.log2(C+0.5) +1.5
+        delay =  delay * 1000
+        return delay
+    }
+   
+    
 }
 
 function renderNext() {
@@ -246,9 +277,18 @@ menuMessages["TutorialBot"] = tutorialBot;
 menuMessages["HumanLikeStart"] = humanLikeStart;
 menuMessages["BotStart"] = botStart;
 menuMessages["ProgressHumanLike"] = progressHumanLike;
-menuMessages["ProgressBot"] = progressBot; nonProgressHumanLike
+menuMessages["ProgressBot"] = progressBot; 
 menuMessages["NonProgressHumanLike"] = nonProgressHumanLike;
 menuMessages["NonProgressBot"] = nonProgressBot;
+// New messages depending on treatment
+
+const messageMask = {
+    "1": "Weiter gehts!😊 Klassifiziere jetzt die nächsten fünf Bilder bitte.",
+    "11": "Ich habe mir deine Klassifizierung angeschaut und weitergeleitet. Mach jetzt bitte weiter. :)",
+    "111" : "Klassifiziere jetzt die nächsten fünf Bilder bitte.😊", 
+    "1111" : "Deine Ergebnisse sind bei mir angekommen für die nächsten 5 Bilder. Setzte jetzt bitte die Klassifikation fort."
+  }
+
 
 // dialogflow functions
 
@@ -256,6 +296,7 @@ menuMessages["NonProgressBot"] = nonProgressBot;
 function tutorialHumanLike() {
     renderHTMLEles(startMessageArrayHL,"Bot");
     renderHTMLEles(startTutorialHL1Array, "Bot");
+    
    
 }
 
@@ -276,14 +317,7 @@ function botStart(){
 }
 
 
-// New messages depending on treatment
 
-const messageMask = {
-    "1": "Weiter gehts!😊 Klassifiziere jetzt die nächsten fünf Bilder bitte.",
-    "11": "Ich habe mir deine Klassifizierung angeschaut und weitergeleitet. Mach jetzt bitte weiter. :)",
-    "111" : "Klassifiziere jetzt die nächsten fünf Bilder bitte.😊", 
-    "1111" : "Deine Ergebnisse sind bei mir angekommen für die nächsten 5 Bilder. Setzte jetzt bitte die Klassifikation fort."
-  }
 
 
 
