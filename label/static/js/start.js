@@ -1,5 +1,5 @@
 
-var pageArray = [1,2,3,4]
+var pageArray = [1,2,1,2]
 
 function getRandomGroup () {
     const random = Math.floor(Math.random() * pageArray.length);
