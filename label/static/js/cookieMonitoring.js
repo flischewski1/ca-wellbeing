@@ -1,6 +1,8 @@
 let taskTimestamps = {};
 let taskResultsItems = {};
 let taskResultsTerrain = {};
+
+// Mask for counter labeled pictures
 const counterMask = {
   "Timestamp1" : "Timestamp1",
   "1": "Timestamp2",
@@ -53,7 +55,7 @@ function getData(form) {
 
     if(cookieStatus === "11111"){
       const group = readCookie("group"); 
-      // UPDATE LINK
+      // UPDATE LINK  for other surveys
       let surveylink = "https://bildungsportal.sachsen.de/umfragen/limesurvey/index.php/171198?newtest=Y&lang=de"
       let linkString = "&Group=" + '"' + group + '"'; 
       linkString = iterateCookie(taskResultsTerrain, linkString);
