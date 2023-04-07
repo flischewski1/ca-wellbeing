@@ -8,7 +8,7 @@ label_choices_items = (
     ('Plastiklöffel', 'Plastiklöffel'),
     ('PET-Flasche','PET-Flasche'), 
     ('Glasflasche','Glasflasche'),
-    ('Kein Müllgegestand', 'Kein Müllgegestan'), 
+    ('Kein Müllgegestand', 'Kein Müllgegestand'), 
     ('Plastikbeutel', 'Plastikbeutel'), 
     ('Flaschendeckel','Flaschendeckel'), 
     ('Strohhalm','Strohhalm'),

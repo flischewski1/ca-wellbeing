@@ -1,8 +1,3 @@
-const responseObj = {
-    hello: "Hey ! How are you doing ?",
-    
-}
-
 // Cookie Progress
 
 function createCookie(name,value,days) {
@@ -74,9 +69,9 @@ const updateCookie = () => {
         cookieStatus = readCookie("ExperimentCounter")
         newCookieValue = cookieStatus + 1 
         createCookie("ExperimentCounter",newCookieValue,7)
-        console.log(readCookie("ExperimentCounter"))
+        
     }
 }
 
 
-// Generate Link 
+
