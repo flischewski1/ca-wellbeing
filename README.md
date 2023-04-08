@@ -1,6 +1,6 @@
 # Task for further experiments
 
-- *Step 1:* clone the repositpry into a folder
+- *Step 1:* clone the repository into a folder
 
 - *Step 2:* Create a virtual environment in it ($python -m venv venv)
 
